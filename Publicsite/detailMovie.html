@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: black;
+        }
+        h2{
+            color: antiquewhite;
+            text-align: center;
+        }
+        .card{
+            display: flex;
+            justify-content: center;
+            /* flex-direction: row; */
+        }
+        .image{
+            width: 750px;
+            border: 2px solid #333333;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            padding-right: 15px;
+        }
+
+        .image img{
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+
+        }
+        .content{
+            color: antiquewhite;
+            text-align: justify;
+            gap: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 25px;
+        }
+        .content a{
+            text-decoration: none;
+            color: rgb(226, 229, 62);
+            text-align: center;
+        }
+    </style>
+    <title>Detail Movie</title>
+</head>
+<body>
+    <h2>The Avenger: Doomsday</h2>
+    <div class="card">
+        <div class="image">
+            <img src="https://lumiere-a.akamaihd.net/v1/images/doomsday-teaser_62621027.jpeg" alt="The Avenger">
+            <div class="content">
+                <p>Heroes from three different worlds must unite when they're thrust together to confront a catastrophic danger that could destroy everything they know.</p>
+                <p>Rating: 8,5</p>
+                <a href="https://www.youtube.com/watch?v=irVNGjRFZGk">Watch Trailer</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
