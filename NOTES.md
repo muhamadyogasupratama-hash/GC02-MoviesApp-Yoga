@@ -4,4 +4,4 @@
 >
 > "Pemahaman yang baik berasal dari keinginan untuk terus belajar, dan catatan adalah langkah pertama menuju pengetahuan yang dalam."
 
-> Tampilan web atau soal front end, menggunakan library React Js, dan untuk testing menggunakan Vite
+> Tampilan web atau soal front end, menggunakan library React Js, dan untuk testing front-end menggunakan Vite
