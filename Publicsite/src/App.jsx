@@ -13,7 +13,7 @@ function App() {
         <a href="">Home</a>
         <br />
         <br />
-        <form action="">
+        <form action="" className='text-blue-100'>
           <input
             style={{ borderRadius: 7 }}
             type="text"
