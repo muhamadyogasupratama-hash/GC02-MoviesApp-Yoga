@@ -5,6 +5,7 @@ import viteLogo from './assets/vite.svg'
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from './pages/Home';
 import DetailMovie from './pages/DetailMovie';
+import BaseLayout from './layout/BaseLayout';
 
 function App() {
 
@@ -12,8 +13,10 @@ function App() {
       <>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/:id" element={<DetailMovie />} />
+            <Route element={<BaseLayout />}>
+              <Route path="/" index element={<Home />} />
+              <Route path="/:id" element={<DetailMovie />} />
+            </Route>
           </Routes>
         </BrowserRouter>
   </>
