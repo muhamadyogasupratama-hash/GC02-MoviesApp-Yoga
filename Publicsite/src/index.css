@@ -4,9 +4,9 @@ h1 {
     color: aliceblue;
     padding: 5px;
 }
-body{
+/* body{
     background-color: black;
-}
+} */
 nav a {
     text-decoration: none;
     color: aliceblue;
@@ -20,7 +20,7 @@ nav a {
     flex-wrap: wrap;
     gap: 5px;
     justify-content: space-around;
-    background-color: black;
+    /* background-color: black; */
 }
 .card{
     width: 300px;
