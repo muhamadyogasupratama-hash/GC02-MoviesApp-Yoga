@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Gradasi Latar Belakang Midnight Blue-Violet -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Gradasi Emas Sinematik untuk Garis & Aksen -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <!-- Gradasi Merah Karpet Mewah -->
+    <linearGradient id="rubyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#be123c" />
+    </linearGradient>
+  </defs>
+
+  <!-- Latar Belakang Kotak dengan Sudut Tumpul Halus -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Kilau Bintang Sinematik Kecil di Latar Belakang -->
+  <circle cx="14" cy="16" r="1" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="52" cy="18" r="1.2" fill="#f43f5e" opacity="0.7"/>
+  <circle cx="48" cy="48" r="0.8" fill="#38bdf8" opacity="0.5"/>
+
+  <!-- Badan Utama Kamera Film (Bentuk Trapesium Sudut Melengkung) -->
+  <path d="M16 26h32a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H16a3 3 0 0 1-3-3V29a3 3 0 0 1 3-3z" fill="#0f172a" stroke="url(#goldGrad)" stroke-width="2"/>
+
+  <!-- Bagian Atas / Viewfinder / Rumah Lensa -->
+  <rect x="26" y="21" width="12" height="5" rx="1.5" fill="#1e293b" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- Dua Reel / Gulungan Film di Atas Kamera -->
+  <!-- Reel Kiri -->
+  <circle cx="22" cy="21" r="5" fill="#0f172a" stroke="url(#rubyGrad)" stroke-width="2"/>
+  <circle cx="22" cy="21" r="1.5" fill="#fbbf24"/>
+  
+  <!-- Reel Kanan -->
+  <circle cx="42" cy="21" r="5" fill="#0f172a" stroke="url(#rubyGrad)" stroke-width="2"/>
+  <circle cx="42" cy="21" r="1.5" fill="#fbbf24"/>
+
+  <!-- Lensa Kamera Utama di Tengah -->
+  <circle cx="32" cy="37" r="7" fill="#020617" stroke="url(#goldGrad)" stroke-width="2"/>
+  <circle cx="32" cy="37" r="4" fill="none" stroke="#f43f5e" stroke-width="1.5"/>
+  <circle cx="32" cy="37" r="1.5" fill="#38bdf8"/>
+
+  <!-- Aksen Cahaya Refleksi pada Lensa -->
+  <path d="M29 34c1-1 3-1 4 0" stroke="#ffffff" stroke-width="1" stroke-linecap="round" fill="none"/>
+</svg>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { BaseUrl } from "../constant/BaseUrl";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import gifLoading from '../assets/blendertimer-load-37.gif'
+import gifLoading from '../assets/fe_da_silva-loading-7528_512.gif'
 
 export default function Home() {
     const [movies, setMovies] = useState([])
@@ -112,37 +112,37 @@ export default function Home() {
                             )
                         })}
                         </div>
+                        <div className="flex justify-center gap-2 p-10">
+                            <Link 
+                                disabled={page === 1}
+                                className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded ${
+                                    page === 1 ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 text-white"
+                                }`}
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    if (page >1) setPage (page - 1)
+                                }}
+                            >
+                            ⬅️ Prev Page
+                            </Link>   
+
+                            {PaginationPage()}
+
+                            <Link 
+                                disabled={page === totalPages}
+                                className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded ${
+                                    page === totalPages ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 text-white"
+                                }`}
+                            onClick={(event) => {
+                                event.preventDefault()
+                                if(page < totalPages) setPage(page + 1)
+                            }}
+                            >
+                            Next Page ➡️
+                            </Link>    
+                        </div>            
                     
                     </>)}
-                <div className="flex justify-center gap-2 p-10">
-                    <Link 
-                        disabled={page === 1}
-                        className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded ${
-                            page === 1 ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 text-white"
-                        }`}
-                        onClick={(event) => {
-                            event.preventDefault()
-                            if (page >1) setPage (page - 1)
-                        }}
-                    >
-                    ⬅️ Prev Page
-                    </Link>   
-
-                    {PaginationPage()}
-
-                    <Link 
-                        disabled={page === totalPages}
-                        className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded ${
-                            page === totalPages ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 text-white"
-                        }`}
-                    onClick={(event) => {
-                        event.preventDefault()
-                        if(page < totalPages) setPage(page + 1)
-                    }}
-                    >
-                    Next Page ➡️
-                    </Link>    
-                </div>            
             </div>
         </div>
         </>
