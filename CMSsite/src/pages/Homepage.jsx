@@ -101,24 +101,26 @@ export default function Homepage () {
                                                 src={movie.imgUrl} 
                                                 className="w-12 h-16 object-cover rounded shadow"
                                             />
-                                            <Link 
-                                                to={`/movies/${movie.id}`}
-                                                className="bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white text-[11px] font-medium py-1 px-2.5 rounded border border-neutral-700 transition duration-200 whitespace-nowrap"
-                                            >
-                                                Update Image
-                                            </Link>
+                                            <Button key={movie.id}
+                                                element={movie}
+                                            >Update Image</Button>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
                                         <Link to={movie.trailerUrl} className="text-blue-400 hover:underline text-xs font-mono">{movie.trailerUrl}</Link>
                                     </td>
-                                    <td className="px-6 py-4 max-w-xs truncate text-neutral-400">
+                                    <td className="px-6 py-4 max-w-xs truncate text-neutral-400 text-center">
                                     {movie.User.id}
                                     </td>
-                                    <td className="px-6 py-4">
-                                        <Button key={movie.id}
-                                                element={movie}
-                                        >Edit</Button>
+                                    <td className="px-6 py-4 align-middle">
+                                        <div className="flex items-center gap-2">
+                                            <Button key={movie.id}
+                                                    element={movie}
+                                            >Edit</Button>
+                                            <Button key={movie.id}
+                                                    element={movie}
+                                            >Delete</Button>
+                                        </div>
                                     </td>
                                 </tr>
 
