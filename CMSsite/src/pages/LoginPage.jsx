@@ -13,8 +13,8 @@ export default function LoginPage () {
         event.preventDefault()
         // console.log('tombol di klik', email, password);
         try {
-            const {data} = await axios.post(BaseUrl, {email, password})
-            console.log(data.access_token);
+            const {data} = await axios.post(`${BaseUrl}/users/login`, {email, password})
+            // console.log(data);
             
             localStorage.setItem('access_token', data.access_token)
             navigate('/movies')
@@ -35,7 +35,7 @@ export default function LoginPage () {
             }).showToast();
 
         } catch (error) {
-            // console.log(error.response.data.message);
+            // console.log(error.response);
             Toastify({
             text: error.response.data.message,
             duration: 3000,
