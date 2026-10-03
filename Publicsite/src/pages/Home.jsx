@@ -10,21 +10,45 @@ export default function Home() {
     const [searchGenre, setSearchGenre] = useState('')
     const [sort, setSort] = useState('ASC')
     const [page, setPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(1)
 
     async function fetchMovies() {
         try {
             "?searchTitle=&searchGenre=thriller&page=&sort="
             const {data} = await axios.get(`${BaseUrl}?searchTitle=${searchTitle}&searchGenre=${searchGenre}&page=${page}&sort=ASC`)
-            // console.log(data.pagination);
+            // console.log(data.pagination.totalPage);
             setMovies(data.data)
+            setTotalPages(data.pagination.totalPage);
         } catch (error) {
-            // console.log(error);
+            console.log(error);
         }
     } 
 
     useEffect(() => {
         fetchMovies()
     }, [searchTitle, searchGenre, sort, page])
+
+    function PaginationPage() {
+        let pages = []
+        for (let i = 1; i <= totalPages; i++) {
+            const isActivePage = i === page;
+
+            pages.push(
+                <Link
+                    key={i}
+                    onClick={() => setPage(i)}
+                    className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded transition-colors ${
+                        isActivePage 
+                            ? "bg-blue-900 text-yellow-300 border-yellow-300 underline" 
+                            : "bg-blue-500 hover:bg-blue-700 text-white"
+                    }`}
+                >
+                    {i}
+                </Link>
+            )
+        }
+        return pages;
+    }
 
     return (
         <>
@@ -37,14 +61,21 @@ export default function Home() {
                             type="text"
                             name="searchTitle"
                             placeholder="Search Movie"
-                            onChange={(event)=> setSearchTitle(event.target.value)}
+                            onChange={(event)=> {
+                                setSearchTitle(event.target.value)
+                                setPage(1)
+                            }} 
                         />
                         <input
                             className="border-1 rounded-2xl p-1"
                             type="text"
                             name="searchGenre"
                             placeholder="Search Genre"
-                            onChange={(event)=> setSearchGenre(event.target.value)}
+                            onChange={(event)=> {
+                                setSearchGenre(event.target.value)
+                                setPage(1)
+                            }}
+                            
                         />
                         {/* <input
                             className="border-1 rounded-2xl p-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded"
@@ -74,13 +105,31 @@ export default function Home() {
                 })}
                 </div>
                 <div className="flex justify-center gap-2 p-10">
-                    <Link className="border-1 rounded-2xl p-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
+                    <Link 
+                        disabled={page === 1}
+                        className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded ${
+                            page === 1 ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 text-white"
+                        }`}
+                        onClick={(event) => {
+                            event.preventDefault()
+                            if (page >1) setPage (page - 1)
+                        }}
+                    >
                     ⬅️ Prev Page
-                    </Link>    
-                    <Link className="border-1 rounded-2xl p-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
-                    1
-                    </Link>    
-                    <Link className="border-1 rounded-2xl p-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
+                    </Link>   
+
+                    {PaginationPage()}
+
+                    <Link 
+                        disabled={page === totalPages}
+                        className={`border-1 rounded-2xl p-1 font-bold py-1 px-3 rounded ${
+                            page === totalPages ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 text-white"
+                        }`}
+                    onClick={(event) => {
+                        event.preventDefault()
+                        if(page < totalPages) setPage(page + 1)
+                    }}
+                    >
                     Next Page ➡️
                     </Link>    
                 </div>            
