@@ -3,6 +3,7 @@ import axios from "axios";
 import { BaseUrl } from "../constant/BaseUrl";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import gifLoading from '../assets/blendertimer-load-37.gif'
 
 export default function Home() {
     const [movies, setMovies] = useState([])
@@ -11,16 +12,20 @@ export default function Home() {
     const [sort, setSort] = useState('ASC')
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
+    const [loading, setLoading] = useState(false)
 
     async function fetchMovies() {
         try {
-            "?searchTitle=&searchGenre=thriller&page=&sort="
-            const {data} = await axios.get(`${BaseUrl}?searchTitle=${searchTitle}&searchGenre=${searchGenre}&page=${page}&sort=ASC`)
+            setLoading(true)
+
+            const {data} = await axios.get(`${BaseUrl}?searchTitle=${searchTitle}&searchGenre=${searchGenre}&page=${page}&sort=${sort}`)
             // console.log(data.pagination.totalPage);
             setMovies(data.data)
             setTotalPages(data.pagination.totalPage);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
+        } finally {
+            setLoading(false)
         }
     } 
 
@@ -77,11 +82,6 @@ export default function Home() {
                             }}
                             
                         />
-                        {/* <input
-                            className="border-1 rounded-2xl p-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded"
-                            type="submit"
-                            defaultValue="Search"
-                        /> */}
                         <select 
                         name="sort" 
                         className="border-1 rounded-2xl p-1"
@@ -97,13 +97,23 @@ export default function Home() {
                     </form>
                 </div>
                 <br />
-                <div className="flex flex-wrap gap-6 justify-center p-6">
-                {movies.map((movie)=> {
-                    return (
-                        <Card key={movie.id} movies={movie} />
-                    )
-                })}
-                </div>
+                {loading? 
+                    (<>
+                        <div className="flex justify-center mt-28">
+                            <img src={gifLoading} />
+                        </div>
+                    </>) 
+                    : 
+                    (<>
+                        <div className="flex flex-wrap gap-6 justify-center p-6">
+                        {movies.map((movie)=> {
+                            return (
+                                <Card key={movie.id} movies={movie} />
+                            )
+                        })}
+                        </div>
+                    
+                    </>)}
                 <div className="flex justify-center gap-2 p-10">
                     <Link 
                         disabled={page === 1}
