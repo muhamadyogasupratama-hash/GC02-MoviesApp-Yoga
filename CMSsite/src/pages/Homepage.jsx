@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import { BaseUrl } from "../constant/BaseUrl";
 import gifLoading from '../assets/fe_da_silva-loading-7528_512.gif'
 import Button from "../components/Button";
+import Add from "../components/Add";
 
 export default function Homepage () {
     const [movies, setMovies] = useState([])
@@ -37,7 +38,7 @@ export default function Homepage () {
                 headers: {
                     Authorization: `Bearer ${localStorage.access_token}` 
                 }})
-            console.log(data.data[0]);
+            // console.log(data.data[0]);
 
             setMovies(data.data)
         } catch (error) {
@@ -63,6 +64,9 @@ export default function Homepage () {
                         <img src={gifLoading} />
                     </div>
                 </>) : (<>
+                    <div className="flex justify-end mb-2">
+                        <Add to="/movies" >Add Movie</Add>
+                    </div>
                     <table className="w-full text-left text-sm text-neutral-300 border-collapse">
 
                         <thead className="bg-neutral-800/60 text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800">
