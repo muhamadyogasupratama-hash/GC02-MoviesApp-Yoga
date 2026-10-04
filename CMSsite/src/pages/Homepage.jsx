@@ -65,7 +65,7 @@ export default function Homepage () {
                     </div>
                 </>) : (<>
                     <div className="flex justify-end mb-2">
-                        <Add to="/add" >Add Movie</Add>
+                        <Add to="/addMovie" >Add Movie</Add>
                     </div>
                     <table className="w-full text-left text-sm text-neutral-300 border-collapse">
 

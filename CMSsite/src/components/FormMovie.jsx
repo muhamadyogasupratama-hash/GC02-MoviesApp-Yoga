@@ -1,4 +1,4 @@
-export default function Form ({ genres = [], formName, onSubmit, onChange, form }) {
+export default function FormMovie ({ genres = [], formName, onSubmit, onChange, form }) {
 
 
     return (

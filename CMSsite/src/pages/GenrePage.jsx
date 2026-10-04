@@ -65,7 +65,7 @@ export default function Genre () {
                 </div>
             </>) : (<>
                 <div className="flex justify-end mb-2">
-                    <Add to="/genres" >Add Genre</Add>
+                    <Add to="/addGenre" >Add Genre</Add>
                 </div>
                 <table className="w-full text-left text-sm text-neutral-300 border-collapse">
 
@@ -84,11 +84,9 @@ export default function Genre () {
                                 <td className="px-6 py-4 font-semibold text-white">{gen.name}</td>
                                 <td className="px-6 py-4 align-middle">
                                     <div className="flex justify-center gap-2">
-                                        <Button key={gen.id}
-                                                element={gen}
+                                        <Button element={gen}
                                         >Edit</Button>
-                                        <Button key={gen.id}
-                                                element={gen}
+                                        <Button element={gen}
                                         >Delete</Button>
                                     </div>
                                 </td>

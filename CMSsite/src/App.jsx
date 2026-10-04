@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage'
 import Homepage from "./pages/Homepage";
 import GenrePage from "./pages/GenrePage";
 import AddMoviePage from "./pages/AddMoviePage";
+import AddGenrePage from "./pages/AddGenrePage";
 
 function App() {
  
@@ -15,7 +16,8 @@ function App() {
           <Route element={<BaseLayout />} />
             <Route path="/movies" index element={<Homepage />} />
             <Route path="/genres" index element={<GenrePage />} />
-            <Route path="/add" index element={<AddMoviePage />} />
+            <Route path="/addMovie" index element={<AddMoviePage />} />
+            <Route path="/addGenre" index element={<AddGenrePage />} />
         </Routes>
     </BrowserRouter>
     </>
