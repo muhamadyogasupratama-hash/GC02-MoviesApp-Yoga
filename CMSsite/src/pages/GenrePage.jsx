@@ -84,9 +84,9 @@ export default function Genre () {
                                 <td className="px-6 py-4 font-semibold text-white">{gen.name}</td>
                                 <td className="px-6 py-4 align-middle">
                                     <div className="flex justify-center gap-2">
-                                        <Button element={gen}
+                                        <Button to={`/genres/${gen.id}`}
                                         >Edit</Button>
-                                        <Button element={gen}
+                                        <Button to={`/genres/${gen.id}`}
                                         >Delete</Button>
                                     </div>
                                 </td>

@@ -105,7 +105,7 @@ export default function Homepage () {
                                                 src={movie.imgUrl} 
                                                 className="w-12 h-16 object-cover rounded shadow"
                                             />
-                                            <Button element={movie}
+                                            <Button to={`/movies/${movie.id}`}
                                             >Update Image</Button>
                                         </div>
                                     </td>
@@ -117,9 +117,9 @@ export default function Homepage () {
                                     </td>
                                     <td className="px-6 py-4 align-middle">
                                         <div className="flex items-center gap-2">
-                                            <Button element={movie}
+                                            <Button to={`/editMovie/${movie.id}`}
                                             >Edit</Button>
-                                            <Button element={movie}
+                                            <Button to={`/editMovie/${movie.id}`}
                                             >Delete</Button>
                                         </div>
                                     </td>
