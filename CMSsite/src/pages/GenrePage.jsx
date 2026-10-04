@@ -94,7 +94,6 @@ export default function Genre () {
         }
     }
 
-
     return (
     <div className='bg-gray-950 min-h-screen text-white'>
         <Navbar /> 

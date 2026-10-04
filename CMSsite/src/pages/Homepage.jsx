@@ -153,7 +153,7 @@ export default function Homepage () {
                                                     src={movie.imgUrl} 
                                                     className="w-12 h-16 object-cover rounded shadow"
                                                 />
-                                                <Button to={`/movies/${movie.id}`}
+                                                <Button to={`/uploadMovieImage/${movie.id}`}
                                                 >Update Image</Button>
                                             </div>
                                         </td>
