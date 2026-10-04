@@ -1,4 +1,4 @@
-export default function Form ({ genres = [], formName, onSubmit }) {
+export default function Form ({ genres = [], formName, onSubmit, onChange, form }) {
 
 
     return (
@@ -11,6 +11,8 @@ export default function Form ({ genres = [], formName, onSubmit }) {
                     <input 
                         type="text" 
                         name="title" 
+                        value={form.title}
+                        onChange={(e) => onChange('title', e)}
                         placeholder="Enter movie title" 
                         className="bg-gray-900 border border-gray-800 text-white text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/50 transition-colors"
                     />
@@ -20,6 +22,8 @@ export default function Form ({ genres = [], formName, onSubmit }) {
                     <label className="text-xs font-medium text-gray-400">Synopsis</label>
                     <textarea 
                         name="synopsis" 
+                        value={form.synopsis}
+                        onChange={(e) => onChange('synopsis', e)}
                         placeholder="Enter movie synopsis" 
                         rows="3"
                         className="bg-gray-900 border border-gray-800 text-white text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/50 transition-colors resize-none"
@@ -31,6 +35,8 @@ export default function Form ({ genres = [], formName, onSubmit }) {
                     <input 
                         type="text" 
                         name="imgUrl" 
+                        value={form.imgUrl}
+                        onChange={(e) => onChange('imgUrl', e)}
                         placeholder="https://example.com/poster.jpg" 
                         className="bg-gray-900 border border-gray-800 text-white text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/50 transition-colors"
                     />
@@ -41,6 +47,8 @@ export default function Form ({ genres = [], formName, onSubmit }) {
                     <input 
                         type="text" 
                         name="trailerUrl" 
+                        value={form.trailerUrl}
+                        onChange={(e) => onChange('trailerUrl', e)}
                         placeholder="https://moviescinema/..." 
                         className="bg-gray-900 border border-gray-800 text-white text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/50 transition-colors"
                     />
@@ -50,6 +58,8 @@ export default function Form ({ genres = [], formName, onSubmit }) {
                     <label className="text-xs font-medium text-gray-400">Rating</label>
                     <input 
                         type="number" 
+                        value={form.rating}
+                        onChange={(e) => onChange('rating', e)}
                         name="rating" 
                         placeholder="e.g. 8.5" 
                         className="bg-gray-900 border border-gray-800 text-white text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/50 transition-colors"
@@ -60,7 +70,8 @@ export default function Form ({ genres = [], formName, onSubmit }) {
                     <label className="text-xs font-medium text-gray-400">Genre</label>
                     <select 
                         name="genreId" 
-                        defaultValue=""
+                        value={form.genreId}
+                        onChange={(e) => onChange('genreId', e)}
                         className="bg-gray-900 border border-gray-800 text-white text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/50 transition-colors"
                     >
                         <option value="" disabled>Choose Genre</option>
