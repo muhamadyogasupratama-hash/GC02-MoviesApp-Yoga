@@ -52,6 +52,48 @@ export default function Genre () {
         fetchDataGenres()
     }, [])
 
+    async function handleDeleteGenre(id) {
+        try {
+            const {data} = await axios.delete(`${BaseUrl}/genres/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.access_token}`
+                }
+            })
+
+            setGenre((prevGenres) => prevGenres.filter(genre => genre.id !== id))
+
+            Toastify({
+            text: `Succeed delete genre ${data.deleteGenreById.name}`,
+            duration: 3000,
+            newWindow: true,
+            close: false,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "#34D399",
+                color: "#f8faf6b1"
+            },
+            }).showToast();
+
+        } catch (error) {
+            // console.log(error);
+            Toastify({
+            text: error.response.data.message,
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "#ca4c30",
+                color: "#b3b7adb1)"
+            },
+            }).showToast();
+        }
+    }
+
 
     return (
     <div className='bg-gray-950 min-h-screen text-white'>
@@ -86,7 +128,7 @@ export default function Genre () {
                                     <div className="flex justify-center gap-2">
                                         <Button to={`/editGenre/${gen.id}`}
                                         >Edit</Button>
-                                        <Button to={`/editGenre/${gen.id}`}
+                                        <Button onClick={()=> handleDeleteGenre(gen.id)} variant="danger"
                                         >Delete</Button>
                                     </div>
                                 </td>

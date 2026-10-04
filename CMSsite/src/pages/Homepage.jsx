@@ -64,7 +64,7 @@ export default function Homepage () {
 
             setMovies((prevMovies) => prevMovies.filter(movie => movie.id !== id))
             
-            console.log(data);
+            // console.log(data);
 
             Toastify({
             text: `Succeed delete movie ${data.deleteMovieById.title}`,
