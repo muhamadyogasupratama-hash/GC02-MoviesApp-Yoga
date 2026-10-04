@@ -7,6 +7,7 @@ import AddMoviePage from "./pages/AddMoviePage";
 import AddGenrePage from "./pages/AddGenrePage";
 import AddUser from "./pages/AddUserPage";
 import EditMoviePage from "./pages/EditMoviePage";
+import EditGenrePage from "./pages/EditGenrePage";
 
 function App() {
  
@@ -22,6 +23,7 @@ function App() {
             <Route path="/addGenre" index element={<AddGenrePage />} />
             <Route path="/addUser" index element={<AddUser />} />
             <Route path="/editMovie/:id" index element={<EditMoviePage />} />
+            <Route path="/editGenre/:id" index element={<EditGenrePage />} />
         </Routes>
     </BrowserRouter>
     </>
