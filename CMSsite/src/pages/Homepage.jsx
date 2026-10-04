@@ -65,7 +65,7 @@ export default function Homepage () {
                     </div>
                 </>) : (<>
                     <div className="flex justify-end mb-2">
-                        <Add to="/movies" >Add Movie</Add>
+                        <Add to="/add" >Add Movie</Add>
                     </div>
                     <table className="w-full text-left text-sm text-neutral-300 border-collapse">
 
@@ -105,8 +105,7 @@ export default function Homepage () {
                                                 src={movie.imgUrl} 
                                                 className="w-12 h-16 object-cover rounded shadow"
                                             />
-                                            <Button key={movie.id}
-                                                element={movie}
+                                            <Button element={movie}
                                             >Update Image</Button>
                                         </div>
                                     </td>
@@ -118,11 +117,9 @@ export default function Homepage () {
                                     </td>
                                     <td className="px-6 py-4 align-middle">
                                         <div className="flex items-center gap-2">
-                                            <Button key={movie.id}
-                                                    element={movie}
+                                            <Button element={movie}
                                             >Edit</Button>
-                                            <Button key={movie.id}
-                                                    element={movie}
+                                            <Button element={movie}
                                             >Delete</Button>
                                         </div>
                                     </td>
