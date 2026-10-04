@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import BaseLayout from '../../Publicsite/src/layout/BaseLayout';
+import BaseLayout from '../src/layout/BaseLayout';
 import LoginPage from './pages/LoginPage'
 import Homepage from "./pages/Homepage";
 import GenrePage from "./pages/GenrePage";
