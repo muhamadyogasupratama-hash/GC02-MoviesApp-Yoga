@@ -23,7 +23,7 @@ export default function Navbar() {
                         isActive ? "text-gray-300 hover:text-white font-semibold text-sm px-4 py-1 rounded-full bg-gray-900/60 hover:bg-blue-600/20 border border-gray-800 hover:border-blue-500/40 shadow-sm transition-all duration-300 ease-out select-none underline" : "text-gray-300 hover:text-white font-semibold text-sm px-4 py-1 rounded-full bg-gray-900/60 hover:bg-blue-600/20 border border-gray-800 hover:border-blue-500/40 shadow-sm transition-all duration-300 ease-out select-none"}
                     >Genre List</NavLink>
 
-                    <NavLink to="/users/register" className={({isActive}) =>
+                    <NavLink to="/addUser" className={({isActive}) =>
                         isActive ? "text-gray-300 hover:text-white font-semibold text-sm px-4 py-1 rounded-full bg-gray-900/60 hover:bg-blue-600/20 border border-gray-800 hover:border-blue-500/40 shadow-sm transition-all duration-300 ease-out select-none underline" : "text-gray-300 hover:text-white font-semibold text-sm px-4 py-1 rounded-full bg-gray-900/60 hover:bg-blue-600/20 border border-gray-800 hover:border-blue-500/40 shadow-sm transition-all duration-300 ease-out select-none"}
                     >Add User</NavLink>
 
